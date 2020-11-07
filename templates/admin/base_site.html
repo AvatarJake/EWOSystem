@@ -1,0 +1,207 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} |EWO System{% endblock %}
+
+{% block branding %}
+<h1><img src="/static/logoewo.png" class="img-fluid" height="100px" /> </h1>
+<h1 align="center" id="site-name"><a href="{% url 'admin:index' %}">EWO System</a></h1>
+{% endblock %}
+{% block extrahead %}
+<style>
+	#h1 {
+    margin: 0 0 20px;
+    font-weight: 300;
+    font-size: 6px;
+    color: black;
+    align-content: center;
+	}
+
+h5{
+    font-weight: 10;
+    font-size: 2px;
+    color: black;
+    align-content: center;
+	}
+
+	#header{
+		background: #1E2D58;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 6px
+	}
+
+	#header{
+	align-content:  center;
+		font-size: 90px;
+	}
+	.dashboard #content {
+		width: auto;
+		margin-left: 1cm;
+
+	}
+
+	h3 {
+		color: black;
+		font-size: 30px;
+		text-align: center;
+	}
+
+	#h2 {
+    margin: 0 0 20px;
+    font-weight: 300;
+    font-size: 30px;
+    color: black;
+	}
+	#header{
+	height: 150px
+	}
+	.module caption{
+		background: #1E2D58;
+	}
+
+	div.breadcrumbs{
+		background: #4CEAD0;
+		color: black;
+	}
+	div.breadcrumbs a{
+		columns: black;
+	}
+
+	.module h2, .module caption, .inline-group h2{
+		border-radius: 10px;
+		background: #53a8e0;
+		font-size: 20px;
+		text-align: center;
+	}
+	td, th {
+	font-size: 18px;
+    line-height: 16px;
+    border-bottom: 1px solid #eee;
+    vertical-align: top;
+    padding: 8px;
+    font-family: "Arial" sans-serif;
+
+	}
+	a:link, a:visited {
+    color: black;
+    text-decoration: none;
+	}
+	#user-tools {
+    float: right;
+    padding: 0;
+    margin: 0 0 0 20px;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: right;
+    color: white;
+}
+	table tbody th {
+    border-radius: 10px;
+    color: black;
+	}
+	.table {
+
+		background: #1E2D58;
+	}
+	td, th {
+
+		background: #83E1DE;
+	}
+
+    table tbody th {
+		border-radius: 0px;
+
+		color: black;
+	}
+	#changelist-filter h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 5px 15px;
+    margin-bottom: 12px;
+    border-bottom: none;
+
+	}
+	table thead th .text a {
+    display: block;
+    cursor: pointer;
+    padding: 8px 10px;
+    background: #1E2D58;
+
+	}
+	.thead th, tfoot td {
+    color: #1E2D58;
+    padding: 5px 10px;
+    font-size: 11px;
+    background: #fff;
+    border: 1px;
+    border-top: 1px solid #0E1F1F;
+    border-bottom: 1px solid #0E1F1F;
+	}
+
+	.object-tools a:link, .object-tools a:visited {
+    display: block;
+    float: left;
+    padding: 3px 12px;
+    background: #1E2D58;
+    font-weight: 400;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+	}
+
+
+	thead th a:link, thead th a:visited {
+    color: white;
+    font-size: 15px;
+    text-align: center;
+	}
+
+	.button, input[type=submit], input[type=button], .submit-row input, a.button {
+		padding: 15px 20px;
+		border-radius: 10px;
+		background: #22497C;
+		font-size: 15px;
+		text-align: center;
+
+	}
+	.Imprimir{
+        align-items: center;
+		padding: 8px 20px;
+		border-radius: 10px;
+		background: #e83723;
+		font-size: 15px;
+		text-align: center;
+    }
+    .informe_presupuesto input[type=submit], input[type=button], .submit-row input, a.button {
+        padding: 15px 20px;
+        border-radius: 10px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+
+    }
+
+    .login {
+    background-image: url(/static/fondoewo.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    height: auto;
+}
+
+   .calendar table {
+    margin: 0;
+    padding: 0;
+    border-collapse: separate;
+    background: white;
+    width: 100%;
+}
+
+</style>
+	
+	{% endblock %}
+{% block nav-global %}{% endblock %}

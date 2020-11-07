@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Proyectos Sociales</title>
+
+    <link rel="stylesheet" href="pdf.css" media="all" />
+{% block estilos %}
+
+<style type="text/css">
+       @page{
+             size: letter;
+             margin: 1cm;
+         }
+         
+#logo {
+  float: left;
+  margin-top: 50px;
+}
+
+.img {
+  height: 200px;
+  
+}
+         
+h4 {
+  font-size: 2.7em;
+  color: black;
+  text-align: center;
+  font-family: Arial, sans-serif; 
+}
+
+h3 {
+  font-size: 1.8em;
+  color: black;
+  text-align: center;
+  font-family: Arial, sans-serif; 
+}       
+         .table {
+             width: 100%;
+             max-width: 100%;
+             margin-bottom: 5px;
+             background-color: #B8E7EA;
+         }
+  
+.head {
+font-size: 0.9em;
+  color: black;
+  text-align: center;
+  font-family: Arial, sans-serif;
+
+}
+
+.direccion{
+  font-size: 0.6em;
+  color: black;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+.table th,
+.table td {
+  padding: 5px;
+  vertical-align: top; 
+  text-align: left;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid;
+  font-size: 1.1em;
+  text-align: center;
+
+}
+  
+.img-invoice {
+        width: 100px;
+        text-align: center;
+        margin: 0 auto;
+    }  
+
+.table thead th{
+    vertical-align: bottom;
+    text-align: left;
+    border-bottom: 2px solid #000;
+    background-color: #1E2D58;
+    font-size: 1.1em;
+    color: floralwhite;
+   }
+         
+.table tbody + tbody {
+border-top: solid #000;
+}
+         
+.table .table {
+    background-color: bisque;
+}
+
+.list-group{
+    display: block;
+    width: 100%;
+    list-style: none;
+    margin-top: 15px;
+    margin-bottom: 15px;
+         }
+
+.list-group p{
+    width: 100%;
+    height: 20pz;
+    line-height: 20px;
+    list-style: none;
+    font-size: 1.1em;
+         }
+.descripcion{
+  padding: 10px;
+  vertical-align: center;
+  font-size: 1.1em;
+  background-color: #B8E7EA;
+}
+.encargadosde{
+  padding: 2px;
+  vertical-align: center;
+  justify-content: left;
+  font-size: 1.1em;
+  background-color: #B8E7EA;
+}
+
+.parrafo{
+  padding: 2px;
+  vertical-align: center;
+  font-size: 1.1em;
+  background-color: #B8E7EA;
+}
+
+.encargados{
+  padding: 10px;
+  vertical-align: center;
+  font-size: 1.1em;
+  background-color: #27a2db;
+  }
+.participantes{
+  padding: 10px;
+  vertical-align: center;
+  font-size: 1.1em;
+  background-color: #27a2db;
+
+}
+.labellistado {
+  padding: 10px;
+  margin: 6px;
+  vertical-align: center;
+  font-size: 1.1em;
+
+}
+    </style>
+
+
+{% endblock %}
+
+</head>
+<body>
+  <img src="{{ icon }}" class="img-invoice">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                
+                <h4>
+                <p class="head">
+                    {{ewo.name}}
+                </p>
+                <b class="direccion">
+                    {{ewo.dir}}
+                </b>         
+                </h4>
+                <h2>
+                  <div>
+                  <p class="parrafo">
+                  <table class="table">
+                  <th>Tipo de Proyecto: {{proyecto.tipo_proyecto}}</th>
+                  <th>Fecha: {{proyecto.fecha}}</th>
+                  <tr>
+                  <th>Lugar: {{proyecto.lugar}}</th>
+                  <th>hora de incio: {{proyecto.hora_inicio}}</th>
+                  
+                
+                  <tr>
+                  <th>Cantidad de donaciones: {{proyecto.donaciones}}</th>
+                  <th>hora de Finalizacion: {{proyecto.hora_fin}}</th>
+                  </table>
+
+                  </p>
+                  <p class="descripcion">
+                    Descripcion: {{proyecto.descripcion}}
+                  </p>
+
+                    <p class="encargados">
+                    Encargados: 
+                  </p>
+                  <p class="labellistado">
+                    <table class="encargadosde">
+                      <tr>
+                      <th class="table">Nombre</th><th class="table">Tarea</th>
+                      </tr>
+                    {% for d in proyecto.encargado_set.all %}
+                      <tr>
+                      <td>{{ d.responsable }}</td>
+                      <td>{{ d.trabajo }}</td>
+                      </tr>
+                    {% endfor %}
+                      </table>
+                      </p>
+
+                  <p class="participantes">
+                    Participantes: 
+                  
+                  </p>
+                  <p class="labellistado">
+                    {% for participantes in proyecto.participantes.all %}
+                    <tr>
+                    <p><span class="labellistado">{{ participantes }} {{ participantes.modifier }}</span></p>
+                   </tr>
+                    {% endfor %}
+
+                  </p>
+                  </div>
+
+                </h2>
+            </div>
+            
+            
+        </div>
+    </div>
+</body>
+</html>

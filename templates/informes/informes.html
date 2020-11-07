@@ -1,0 +1,173 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n static %}
+
+{% block usertools %}{% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block content %}
+<div id="content-main">
+  {% include "admin/app_list.html" with app_list=app_list show_changelinks=True %}
+</div>
+{% endblock %}
+
+
+{% block botones_Inicio %}
+    <!-- Content -->
+
+    <div id="content" class="colM">
+  
+ <style type="text/css" >
+  
+  .container {
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 200px;
+    height: 100px;
+  }
+  
+
+  .button {
+      width: 200px;
+      height: 65px;
+      background: #2c0055;
+      box-shadow: 0px 0px 16px #4169E1;
+      border-radius: 2px;
+      z-index: 3;
+      border: 2px solid;
+      transition: all 1s ease-in-out;
+      border-image: linear-gradient(#00CED1, #00BFFF) 30;
+      
+      text-align: center;
+      font-family: "Calibri", cursive;
+      left: 56px;
+      font-size: 35px;
+      line-height: 70px;
+      margin: 0 auto;
+      transition: all 0.3s ease-in-out;
+      background: -webkit-linear-gradient(#1E90FF, #87CEFA);
+      
+      }
+ 
+ </style>
+
+
+<div class="container">
+<a href="/admin/cliente/cliente">
+<div class="button">
+<span>Clientes</span>
+</div><div class="sun"></div>
+</a>
+</div>
+
+
+<div class="container">
+<a href="/admin/proveedores/proveedor">
+<div class="button">
+<span>Proveedores</span>
+</div><div class="sun"></div>
+</a>
+</div>
+
+<div class="container">
+<a href="/admin/producto/producto">
+<div class="button">
+<span>Producto</span>
+</div><div class="sun"></div>
+</a>
+</div>
+
+<div class="container">
+<a href="/admin/compra/compra">
+<div class="button">
+<span>Compras</span>
+</div><div class="sun"></div>
+</a>
+</div>
+
+<div class="container">
+<a href="/admin/venta/venta">
+<div class="button">
+<span>Ventas</span>
+</div><div class="sun"></div>
+</a>
+</div>
+
+<div class="container">
+<a href="/base/informes">
+<div class="button">
+<span>Informes</span>
+</div><div class="sun"></div>
+</a>
+</div>
+
+
+    <br class="clear">
+
+    </div>
+    <!-- END Content -->
+{% endblock %} 
+
+{% block informes%}
+    <!-- Content -->
+
+<div id="content" class="colM">
+  
+<div class="container">
+<a href="{% url 'informes:presupuesto' %}">
+<div class="button">
+<span>Presupuesto General</span>
+</div><div class="sun"></div>
+</a>
+</div>
+
+
+    <br class="clear">
+
+ <style type="text/css" >
+  
+  .container {
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 250px;
+    height: 100px;
+  }
+  
+
+  .button {
+      width: 250px;
+      height: 65px;
+      background: #2c0055;
+      box-shadow: 0px 0px 16px #4169E1;
+      border-radius: 2px;
+      z-index: 3;
+      border: 2px solid;
+      transition: all 1s ease-in-out;
+      border-image: linear-gradient(#00CED1, #00BFFF) 30;
+      
+      text-align: center;
+      font-family: "Calibri", cursive;
+      left: 56px;
+      font-size: 25px;
+      line-height: 70px;
+      margin: 0 auto;
+      transition: all 0.3s ease-in-out;
+      background: -webkit-linear-gradient(#1E90FF, #87CEFA);
+      
+      }
+ 
+ </style>
+
+
+
+    </div>
+    <!-- END Content -->
+{% endblock %} 
+
+  

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>{{rango.tipo}}</title>
+
+    <link rel="stylesheet" href="pdf.css" media="all" />
+{% block estilos %}
+
+<style type="text/css">
+       @page{
+             size: letter;
+             margin: 1cm;
+         }
+         
+#logo {
+  float: left;
+  margin-top: 50px;
+}
+
+.img {
+  height: 200px;
+  
+}
+
+.grafica{
+    height: 400px;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+   }
+h4 {
+  font-size: 2.7em;
+  color: black;
+  text-align: center;
+  font-family: Arial, sans-serif; 
+}
+
+h2 {
+  color: black;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h3 {
+  font-size: 1.8em;
+  color: black;
+  text-align: center;
+  font-family: Arial, sans-serif; 
+}       
+         .table {
+             width: 25%;
+             column-width: 25%;
+             max-width: auto;
+             margin-bottom: 5px;
+             background-color: #B8E7EA;
+         }
+  
+.head {
+font-size: 1.2em;
+  color: black;
+  column-width: auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+
+}
+
+.direccion{
+  font-size: 0.6em;
+  color: black;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+.table th,
+.table td {
+  padding: 6px;
+    vertical-align: top;
+    
+  text-align: center;
+  border-bottom: 1px solid #000;
+  border-top: 1px solid 
+}
+  
+.img-invoice {
+        width: 100px;
+        text-align: center;
+        margin: 0 auto;
+    }  
+.pie {
+text-align: center;
+font-size: 15px;
+}
+.table thead th{
+    vertical-align: bottom;
+    border-bottom: 2px solid #000;
+    background-color: #1E2D58;
+    font-size: 1.1em;
+    color: floralwhite;
+   }
+         
+.table tbody + tbody {
+border-top: solid #000;
+}
+         
+.table .table {
+    background-color: bisque;
+}
+
+.list-group{
+    display: block;
+    width: 100%;
+    list-style: none;
+    margin-top: 15px;
+    margin-bottom: 15px;
+         }
+
+.list-group p{
+    width: 100%;
+    height: 20pz;
+    line-height: 20px;
+    list-style: none;
+    font-size: 1.1em;
+         }
+
+    </style>
+
+
+{% endblock %}
+
+</head>
+<body>
+  <img src="{{ icon }}" class="img-invoice">
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                
+                <h4>
+                
+                <p class="head">
+                    {{ewo.name}}
+                </p>
+                <b class="direccion">
+                    {{ewo.dir}}
+                </b>         
+                
+                </h4>
+                <h3>Informe de {{rango.tipo}} Realizadas</h3>
+                <h2>Del {{rango.fecha_inicio}} al {{rango.fecha_limite}}</h2>
+            </div>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tipo de Proyecto</th>
+                        <th>Lugar</th>
+                        <th>Donaciones</th>
+                        <th>Fecha</th>
+                        <th>Hora Inicio</th>
+                        <th>Hora Finalización</th>
+                        <th>Estado</th>
+                    <tr>
+                </thead>
+                <tbody>
+                    {% for item in proyecto %}
+                         {% if item.fecha >= rango.fecha_inicio and item.fecha <= rango.fecha_limite and item.tipo_proyecto.nombre == rango.tipo.nombre%}
+                            <tr>
+                                <td>{{item.tipo_proyecto}}</td>
+                                <td>{{item.lugar}}</td>
+                                <td>{{item.donaciones}}</td>
+                                <td>{{item.fecha}}</td>
+                                <td>{{item.hora_inicio}}</td>
+                                <td>{{item.hora_fin}}</td>
+                            {% if item.fecha <= fecha %}
+                                <td>Realizado</td>
+                            {% else %}
+                                <td>Pendiente</td>
+                            {% endif %}
+                         {% else %}
+                         {% endif %}
+                            </tr>
+                     {% endfor %}
+                    
+                </tbody>
+                  
+            </table>
+        </div>
+    </div>
+ <div><br>
+  <img src="{{ grafica }}" class="grafica">
+<p class="pie">Gráfica circular que muestra las {{rango.tipo}} realizadas entre el {{rango.fecha_inicio}} al {{rango.fecha_limite}} </p>
+</div>
+</body>
+</html>
